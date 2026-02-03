@@ -1,0 +1,17 @@
+services:
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:latest
+    container_name: speedtest-tracker
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Denver
+      - APP_KEY=base64:REPLACE_ME
+      - APP_URL=http://YOUR_PI_LAN_IP:8080
+      - DB_CONNECTION=sqlite
+      - SPEEDTEST_SCHEDULE=0 3 * * *
+    volumes:
+      - /srv/docker/speedtest-tracker:/config
