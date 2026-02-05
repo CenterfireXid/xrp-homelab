@@ -48,10 +48,27 @@ I added Speedtest Tracker to continuously verify that my ISP delivers the speeds
   ```
   `APP_KEY` is required to encrypt sensitive app data (sessions/cookies and other stored values). Each deployment should have a unique key.
 
-- **Scheduling tests (env var, not UI):** Automated tests are scheduled via an environment variable:
-  ```text
-  SPEEDTEST_SCHEDULE=0 3 * * *
-  ```
-  This cron expression runs once daily at **3:00 AM** (container timezone). Changes take effect after updating/redeploying the Portainer stack.
-
 - **Persistence check:** Verified SQLite + `/config` bind mount persists data across container restarts and host reboots.
+
+- **Scheduling speed tests via cron expression:** Speedtest Tracker schedules automated tests using the `SPEEDTEST_SCHEDULE` environment variable in cron format. Times are based on the set container timezone. Changes take effect after updating/redeploying the Portainer stack. Examples:
+  ```text
+  # Once per day (midnight)
+  SPEEDTEST_SCHEDULE=0 0 * * *
+
+  # Once per day at 3:00 AM
+  SPEEDTEST_SCHEDULE=0 3 * * *
+
+  # Every 2 hours (runs at 00:00, 02:00, 04:00, ...)
+  SPEEDTEST_SCHEDULE=0 */2 * * *
+
+  # Every 2 hours starting at 1:00 AM (runs at 01:00, 03:00, 05:00, ...)
+  SPEEDTEST_SCHEDULE=0 1-23/2 * * *
+
+- Breakdown (5-field cron: minute hour day-of-month month day-of-week):
+  * **Minute:** `0` &rarr; Specifies the job runs at the beginning of the hour (minute 0).
+  * **Hour:** `1-23/2` &rarr; The range `1-23` means every hour from 1 AM to 11 PM. The step value `/2` means it runs every second hour within that range. This results in runs at 1 AM, 3 AM, 5 AM, and so on, every odd hour.
+  * **Day of the Month:** `*` &rarr; The job runs every day of the month.
+  * **Month:** `*` &rarr; This job runs every month.
+  * **Day of the Week:** `*` &rarr; The job runs every day of the week.
+
+
