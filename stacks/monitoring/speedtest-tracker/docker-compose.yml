@@ -9,9 +9,10 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Denver
+      - DISPLAY_TIMEZONE=America/Denver
       - APP_KEY=base64:REPLACE_ME
       - APP_URL=http://YOUR_PI_LAN_IP:8080
       - DB_CONNECTION=sqlite
-      - SPEEDTEST_SCHEDULE=0 3 * * *
+      - SPEEDTEST_SCHEDULE=0 */2 * * *
     volumes:
       - /srv/docker/speedtest-tracker:/config
