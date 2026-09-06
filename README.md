@@ -140,6 +140,7 @@ This keeps every deployment consistent and repeatable.
 | Docker Compose | ✅ |
 | Tailscale | ✅ |
 | Portainer | ✅ |
+| Tracktor | ✅ |
 
 
 
