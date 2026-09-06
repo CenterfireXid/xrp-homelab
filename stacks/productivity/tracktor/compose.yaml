@@ -1,0 +1,17 @@
+services:
+  tracktor:
+    image: ghcr.io/javedh-dev/tracktor:2.0.2
+    container_name: tracktor-app
+    restart: unless-stopped
+
+    ports:
+      - "3333:3000"
+
+    volumes:
+      - /srv/docker/tracktor:/data
+
+    environment:
+      TRACKTOR_DEMO_MODE: "false"
+      FORCE_DATA_SEED: "false"
+      TRACKTOR_DISABLE_AUTH: "false"
+      HTTP_MODE: "http"
