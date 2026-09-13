@@ -119,6 +119,136 @@ No reverse proxy or TLS termination is currently part of this deployment.
 
 If notification providers are configured later, Tracktor requires an `APP_SECRET` to encrypt stored provider credentials.
 
+## Initial Deployment
+
+This section covers a new Tracktor deployment on an XRP Homelab host where Docker and Docker Compose are already installed.
+
+### 1. Check the host port
+
+Tracktor uses host port `3333`.
+
+Confirm that the port is available:
+
+```bash
+sudo ss -ltnp | grep ':3333 '
+```
+
+No output means nothing is currently listening on that port.
+
+### 2. Create the deployment directories
+
+Create the Compose project directory:
+
+```bash
+sudo mkdir -p /opt/stacks/tracktor
+```
+
+Create the persistent-data directory:
+
+```bash
+sudo mkdir -p /srv/docker/tracktor
+```
+
+Assign ownership to the administering user:
+
+```bash
+sudo chown -R $USER:$USER /opt/stacks/tracktor
+sudo chown -R $USER:$USER /srv/docker/tracktor
+```
+
+### 3. Install the Compose definition
+
+Copy the repository's Tracktor `compose.yaml` to:
+
+```text
+/opt/stacks/tracktor/compose.yaml
+```
+
+The resulting layout should be:
+
+```text
+/opt/stacks/tracktor/
+└── compose.yaml
+
+/srv/docker/tracktor/
+```
+
+If creating the file manually:
+
+```bash
+nano /opt/stacks/tracktor/compose.yaml
+```
+
+Paste the configuration from the [Docker Compose](#docker-compose) section and save the file.
+
+### 4. Validate the configuration
+
+Before deploying:
+
+```bash
+cd /opt/stacks/tracktor
+docker compose config
+```
+
+Resolve any configuration errors before continuing.
+
+### 5. Pull the image
+
+```bash
+docker compose pull
+```
+
+On the Raspberry Pi, this also confirms that the selected Tracktor image provides an ARM64 build.
+
+### 6. Deploy Tracktor
+
+```bash
+docker compose up -d
+```
+
+Check the container:
+
+```bash
+docker compose ps
+```
+
+Review the startup logs:
+
+```bash
+docker compose logs --tail=100
+```
+
+### 7. Verify persistent storage
+
+After Tracktor starts, inspect:
+
+```bash
+ls -lah /srv/docker/tracktor
+```
+
+Tracktor should begin storing its persistent application data there through the `/data` bind mount.
+
+### 8. Open Tracktor
+
+Browse to:
+
+```text
+http://<PI-IP>:3333
+```
+
+Complete Tracktor's first-run setup and confirm that the application loads normally.
+
+### 9. Verify in Portainer
+
+Portainer should automatically detect:
+
+```text
+Compose project: tracktor
+Container: tracktor-app
+```
+
+No additional deployment or configuration is required in Portainer.
+
 ## Access
 
 Local access:
