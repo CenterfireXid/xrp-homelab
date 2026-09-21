@@ -1,0 +1,30 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:12.0.20260908-012347
+    container_name: jellyfin
+    user: "1000:1000"
+    restart: unless-stopped
+
+    ports:
+      - "8096:8096/tcp"
+      - "7359:7359/udp"
+
+    volumes:
+      - /srv/docker/jellyfin/config:/config
+      - /srv/docker/jellyfin/cache:/cache
+
+      - type: bind
+        source: /mnt/unas-media/movies
+        target: /media/movies
+
+      - type: bind
+        source: /mnt/unas-media/tv
+        target: /media/tv
+
+      - type: bind
+        source: /mnt/unas-media/kids-tv
+        target: /media/kids-tv
+
+      - type: bind
+        source: /mnt/unas-media/youtube
+        target: /media/youtube
