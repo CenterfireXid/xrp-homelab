@@ -141,6 +141,7 @@ This keeps every deployment consistent and repeatable.
 | Tailscale | ✅ |
 | Portainer | ✅ |
 | Tracktor | ✅ |
+| Jellyfin | ✅ |
 
 
 
