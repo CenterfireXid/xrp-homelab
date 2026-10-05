@@ -2,6 +2,20 @@
 
 Notable deployment, configuration, and documentation changes to XRP Homelab are recorded here. Minor editorial fixes do not require a changelog entry.
 
+## 2026-10-04
+
+### Added
+
+- Added the Mealie Docker Compose stack under `stacks/productivity/mealie`.
+- Deployed Mealie `v3.28.0` using the pinned official image `ghcr.io/mealie-recipes/mealie:v3.28.0`.
+- Added persistent Mealie application data under `/srv/docker/mealie/data`.
+- Configured Mealie to use SQLite with host port `9925`.
+
+### Documentation
+
+- Added the Mealie deployment and operations guide.
+- Documented initial deployment, verification, backup, restore, update, rollback, security, and troubleshooting procedures.
+
 ## 2026-09-21
 
 ### Documentation
