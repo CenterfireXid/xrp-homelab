@@ -142,6 +142,7 @@ This keeps every deployment consistent and repeatable.
 | Portainer | ✅ |
 | Tracktor | ✅ |
 | Jellyfin | ✅ |
+| Mealie | ✅ |
 
 
 
