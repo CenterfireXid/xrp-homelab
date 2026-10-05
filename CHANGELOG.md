@@ -2,6 +2,13 @@
 
 Notable deployment, configuration, and documentation changes to XRP Homelab are recorded here. Minor editorial fixes do not require a changelog entry.
 
+## 2026-10-05
+
+### Documentation
+
+- Added the Mealie migration procedure.
+- Documented the TrueNAS PostgreSQL to Raspberry Pi SQLite migration workflow.
+
 ## 2026-10-04
 
 ### Added
