@@ -1,0 +1,18 @@
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v3.28.0
+    container_name: mealie
+    restart: unless-stopped
+
+    ports:
+      - "9925:9000"
+
+    volumes:
+      - /srv/docker/mealie/data:/app/data
+
+    environment:
+      ALLOW_SIGNUP: "false"
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Denver
+      DB_ENGINE: sqlite
