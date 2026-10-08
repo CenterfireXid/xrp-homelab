@@ -2,6 +2,22 @@
 
 Notable deployment, configuration, and documentation changes to XRP Homelab are recorded here. Minor editorial fixes do not require a changelog entry.
 
+## 2026-10-08
+
+### Added
+
+- Added the Homarr Docker Compose stack under `stacks/management/homarr`.
+- Documented the running Homarr `v1.77.2` deployment on host port `7575`.
+- Added persistent Homarr application data under `/srv/docker/homarr`.
+- Added a restricted LinuxServer Docker socket proxy for container discovery, logs, and start/stop/restart controls.
+- Added `.env.example` for the required Homarr encryption key.
+
+### Documentation
+
+- Added the reproducible Homarr initial deployment and verification procedure.
+- Documented the private `docker-api` network and restricted socket-proxy permissions.
+- Documented the observed Redis `vm.overcommit_memory` startup warning without changing the host sysctl setting.
+
 ## 2026-10-05
 
 ### Documentation
