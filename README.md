@@ -143,13 +143,13 @@ This keeps every deployment consistent and repeatable.
 | Tracktor | ✅ |
 | Jellyfin | ✅ |
 | Mealie | ✅ |
+| Homarr | ✅ |
 
 
 
 # Future Services
 
 - Uptime Kuma
-- Tracktor
 - Home Assistant
 - Immich
 - Paperless-ngx
