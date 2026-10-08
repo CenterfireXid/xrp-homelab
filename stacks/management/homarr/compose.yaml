@@ -1,0 +1,46 @@
+services:
+  homarr:
+    image: ghcr.io/homarr-labs/homarr:v1.77.2
+    container_name: homarr
+    restart: unless-stopped
+    depends_on:
+      - homarr-socket-proxy
+    environment:
+      SECRET_ENCRYPTION_KEY: ${SECRET_ENCRYPTION_KEY}
+      PUID: "1000"
+      PGID: "1000"
+      DOCKER_HOSTNAMES: homarr-socket-proxy
+      DOCKER_PORTS: "2375"
+    ports:
+      - "7575:7575"
+    volumes:
+      - /srv/docker/homarr:/appdata
+    networks:
+      - default
+      - docker-api
+
+  homarr-socket-proxy:
+    image: lscr.io/linuxserver/socket-proxy:3.4.4-r0-ls97
+    container_name: homarr-socket-proxy
+    restart: unless-stopped
+    environment:
+      CONTAINERS: "1"
+      EVENTS: "1"
+      PING: "1"
+      VERSION: "1"
+      ALLOW_LOGS: "1"
+      ALLOW_START: "1"
+      ALLOW_STOP: "1"
+      ALLOW_RESTARTS: "1"
+      POST: "0"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    read_only: true
+    tmpfs:
+      - /run
+    networks:
+      - docker-api
+
+networks:
+  docker-api:
+    internal: true
