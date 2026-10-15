@@ -144,6 +144,7 @@ This keeps every deployment consistent and repeatable.
 | Jellyfin | ✅ |
 | Mealie | ✅ |
 | Homarr | ✅ |
+| qBittorrent | ✅ |
 
 
 
