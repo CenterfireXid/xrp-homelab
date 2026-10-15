@@ -1,0 +1,24 @@
+services:
+  qbittorrent:
+    image: qbittorrentofficial/qbittorrent-nox:5.2.3-1
+    container_name: qbittorrent
+    restart: unless-stopped
+    stop_grace_period: 30m
+
+    environment:
+      QBT_LEGAL_NOTICE: confirm
+      QBT_WEBUI_PORT: "10095"
+      QBT_TORRENTING_PORT: "51413"
+      PUID: "1000"
+      PGID: "1000"
+      PAGID: "988"
+      TZ: America/Denver
+
+    ports:
+      - "10095:10095/tcp"
+      - "51413:51413/tcp"
+      - "51413:51413/udp"
+
+    volumes:
+      - /srv/docker/qbittorrent/config:/config
+      - /mnt/unas-media/downloads:/downloads
