@@ -2,6 +2,25 @@
 
 Notable deployment, configuration, and documentation changes to XRP Homelab are recorded here. Minor editorial fixes do not require a changelog entry.
 
+## 2026-10-15
+
+### Added
+
+- Added the qBittorrent Docker Compose stack under `stacks/media/qbittorrent`.
+- Documented the running qBittorrent `v5.2.3` deployment using the pinned official image `qbittorrentofficial/qbittorrent-nox:5.2.3-1`.
+- Added persistent qBittorrent configuration under `/srv/docker/qbittorrent/config`.
+- Added NFS-backed download storage from `/mnt/unas-media/downloads`.
+- Configured separate incomplete and complete download paths.
+- Configured authenticated NordVPN SOCKS5 proxying for BitTorrent traffic.
+
+### Documentation
+
+- Added the reproducible qBittorrent initial deployment, verification, backup, restore, update, security, and troubleshooting procedures.
+- Documented torrent-address and proxy-failure verification of the SOCKS5 configuration.
+- Documented the observed UDP tracker limitation through the current SOCKS5 configuration.
+- Documented defensive file-type exclusions for executable and script content.
+- Documented the expected NFS ownership warning and verified download-directory write behavior.
+
 ## 2026-10-08
 
 ### Added
