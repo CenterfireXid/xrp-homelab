@@ -2,6 +2,26 @@
 
 Notable deployment, configuration, and documentation changes to XRP Homelab are recorded here. Minor editorial fixes do not require a changelog entry.
 
+## 2026-10-26
+
+### Added
+
+- Added the Prowlarr Docker Compose stack under `stacks/media/prowlarr`.
+- Documented the running Prowlarr `v2.6.5.5623` deployment using the pinned LinuxServer image `lscr.io/linuxserver/prowlarr:2.6.5`.
+- Added persistent Prowlarr application data under `/srv/docker/prowlarr`.
+- Added Sonarr and Radarr application integrations using Full Sync.
+- Added tag-scoped NordVPN SOCKS5 proxying for selected indexer traffic.
+- Added FlareSolverr integration using a dedicated `flaresolverr` tag.
+
+### Documentation
+
+- Added the reproducible Prowlarr initial deployment, verification, backup, restore, update, security, and troubleshooting procedures.
+- Documented the corrected `Allowed Hosts` configuration after resolving the HTTP `400 Invalid Hostname` issue.
+- Documented the move away from Prowlarr's global proxy after it interfered with local Sonarr, Radarr, and FlareSolverr communication.
+- Added `NORDVPN-SOCKS5.md` with sanitized NordVPN SOCKS5 configuration, verification, credential-handling, and troubleshooting procedures.
+- Documented the use of separate `nord` and `flaresolverr` tags for proxy egress and challenge handling.
+- Added a roadmap to replace application-level SOCKS5 proxying with dedicated VPN-based egress and fail-closed routing.
+
 ## 2026-10-15
 
 ### Added
