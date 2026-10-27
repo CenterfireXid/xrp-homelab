@@ -145,6 +145,7 @@ This keeps every deployment consistent and repeatable.
 | Mealie | ✅ |
 | Homarr | ✅ |
 | qBittorrent | ✅ |
+| Prowlarr | ✅ |
 
 
 
