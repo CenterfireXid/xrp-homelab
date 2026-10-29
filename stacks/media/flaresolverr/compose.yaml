@@ -1,0 +1,30 @@
+services:
+  nord-socks-relay:
+    image: ginuerzh/gost:2.12.0
+    container_name: nord-socks-relay
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    entrypoint:
+      - /bin/sh
+      - -c
+    command:
+      - >
+        exec /bin/gost
+        -L=socks5://:1080
+        -F=socks5://$${NORD_SOCKS_USERNAME}:$${NORD_SOCKS_PASSWORD}@$${NORD_SOCKS_HOST}:$${NORD_SOCKS_PORT}
+
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:v3.5.2
+    container_name: flaresolverr
+    restart: unless-stopped
+    depends_on:
+      - nord-socks-relay
+    environment:
+      - LOG_LEVEL=info
+      - TZ=America/Denver
+      - PROXY_URL=socks5://nord-socks-relay:1080
+    ports:
+      - "8191:8191"
+    volumes:
+      - /srv/docker/flaresolverr:/config
