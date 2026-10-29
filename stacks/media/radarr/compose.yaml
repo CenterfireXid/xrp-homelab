@@ -1,0 +1,14 @@
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:6.4.4
+    container_name: radarr
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=988
+      - TZ=America/Denver
+    ports:
+      - "7878:7878"
+    volumes:
+      - /srv/docker/radarr:/config
+      - /mnt/unas-media:/data
