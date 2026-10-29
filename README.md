@@ -146,6 +146,9 @@ This keeps every deployment consistent and repeatable.
 | Homarr | ✅ |
 | qBittorrent | ✅ |
 | Prowlarr | ✅ |
+| FlareSolverr | ✅ |
+| Radarr | ✅ |
+| Sonarr | ✅ |
 
 
 
