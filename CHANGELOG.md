@@ -2,6 +2,44 @@
 
 Notable deployment, configuration, and documentation changes to XRP Homelab are recorded here. Minor editorial fixes do not require a changelog entry.
 
+## 2026-10-29
+
+### Added
+
+- Added the FlareSolverr Docker Compose stack under `stacks/media/flaresolverr`.
+- Documented the running FlareSolverr `v3.5.2` deployment with a local GOST `2.12.0` SOCKS5 relay.
+- Added sanitized `.env.example` values for NordVPN SOCKS5 host, port, username, and password placeholders.
+- Added the Radarr Docker Compose stack under `stacks/media/radarr`.
+- Documented the running Radarr `v6.4.4.10685` deployment using the pinned LinuxServer image `lscr.io/linuxserver/radarr:6.4.4`.
+- Added persistent Radarr application data under `/srv/docker/radarr`.
+- Added NFS-backed media access through `/mnt/unas-media:/data`.
+- Configured the Radarr movie root at `/data/movies`.
+- Added qBittorrent integration with a Remote Path Mapping from `/downloads` to `/data/downloads`.
+- Added Prowlarr integration using Full Sync.
+- Added the Sonarr Docker Compose stack under `stacks/media/sonarr`.
+- Documented the running Sonarr `v4.0.20.3014` deployment using the pinned LinuxServer image `lscr.io/linuxserver/sonarr:4.0.20`.
+- Added persistent Sonarr application data under `/srv/docker/sonarr`.
+- Added NFS-backed media access through `/mnt/unas-media:/data`.
+- Configured TV library roots at `/data/tv` and `/data/kids-tv`.
+- Added qBittorrent integration with a Remote Path Mapping from `/downloads` to `/data/downloads`.
+- Added Prowlarr integration using Full Sync.
+
+### Documentation
+
+- Added the FlareSolverr deployment, verification, backup, restore, security, and troubleshooting procedures.
+- Documented the GOST relay used to bridge FlareSolverr to authenticated NordVPN SOCKS5 egress.
+- Documented the direct Chromium SOCKS5 authentication failure and the verified local relay workaround.
+- Documented the Prowlarr-to-FlareSolverr integration and the use of the `flaresolverr` tag.
+- Added a roadmap to replace application-level SOCKS5 routing with dedicated VPN-based egress and fail-closed behavior.
+- Added the reproducible Radarr initial deployment, validation, verification, backup, restore, update, security, and Portainer procedures.
+- Documented the qBittorrent container-path mismatch and required Remote Path Mapping for completed-download imports.
+- Documented the verified Radarr hardlink import behavior on the NFS-backed media layout.
+- Documented troubleshooting for import failures, media-path permissions, hardlink verification, and Jellyfin library visibility.
+- Added the reproducible Sonarr initial deployment, validation, verification, backup, restore, update, security, and Portainer procedures.
+- Documented the NFS group-permission model using `PGID=988` for Sonarr and Radarr media write access.
+- Documented the qBittorrent Remote Path Mapping required for Sonarr completed-download imports.
+- Documented troubleshooting for Sonarr import failures, media-path permissions, and Jellyfin library visibility.
+
 ## 2026-10-26
 
 ### Added
