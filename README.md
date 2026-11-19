@@ -149,6 +149,7 @@ This keeps every deployment consistent and repeatable.
 | FlareSolverr | ✅ |
 | Radarr | ✅ |
 | Sonarr | ✅ |
+| Seerr | ✅ |
 
 
 
