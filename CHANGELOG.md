@@ -2,6 +2,21 @@
 
 Notable deployment, configuration, and documentation changes to XRP Homelab are recorded here. Minor editorial fixes do not require a changelog entry.
 
+## 2026-11-19
+
+### Added
+
+- Added the Seerr Docker Compose stack under `stacks/media/seerr`.
+- Documented the verified Seerr `3.5.0` deployment using the pinned image `ghcr.io/seerr-team/seerr:v3.5.0`.
+- Added persistent Seerr application data under `/srv/docker/seerr` with the web interface on host port `5055`.
+- Added Seerr to the repository's current infrastructure list.
+
+### Documentation
+
+- Added the Seerr deployment and operations guide.
+- Documented Jellyfin, Radarr, and Sonarr integration, restart persistence, Portainer verification, backup, restore, update, security, and troubleshooting procedures.
+- Documented the verified end-to-end request path from Seerr through Radarr/Sonarr and qBittorrent to Jellyfin.
+
 ## 2026-10-29
 
 ### Added
