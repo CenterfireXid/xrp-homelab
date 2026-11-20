@@ -150,8 +150,7 @@ This keeps every deployment consistent and repeatable.
 | Radarr | ✅ |
 | Sonarr | ✅ |
 | Seerr | ✅ |
-
-
+| Calibre-Web-Automated | ✅ |
 
 # Future Services
 
