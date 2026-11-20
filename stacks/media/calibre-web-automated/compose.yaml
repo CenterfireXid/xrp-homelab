@@ -1,0 +1,19 @@
+services:
+  calibre-web-automated:
+    image: ghcr.io/crocodilestick/calibre-web-automated:v4.0.8
+    container_name: calibre-web-automated
+    restart: unless-stopped
+
+    environment:
+      PUID: "1000"
+      PGID: "988"
+      TZ: "America/Denver"
+      NETWORK_SHARE_MODE: "true"
+
+    ports:
+      - "8083:8083"
+
+    volumes:
+      - /srv/docker/calibre-web-automated/config:/config
+      - /mnt/unas-media/downloads/cwa-ingest:/cwa-book-ingest
+      - /mnt/unas-media/books-cwa:/calibre-library
