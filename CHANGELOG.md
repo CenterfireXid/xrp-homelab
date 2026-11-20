@@ -2,6 +2,25 @@
 
 Notable deployment, configuration, and documentation changes to XRP Homelab are recorded here. Minor editorial fixes do not require a changelog entry.
 
+## 2026-11-20
+
+### Added
+
+- Added the Calibre-Web-Automated Docker Compose stack under `stacks/media/calibre-web-automated`.
+- Documented the verified Calibre-Web Automated `v4.0.8` deployment using the pinned image `ghcr.io/crocodilestick/calibre-web-automated:v4.0.8`.
+- Added persistent CWA application state under `/srv/docker/calibre-web-automated/config`.
+- Added NFS-backed ebook ingest at `/mnt/unas-media/downloads/cwa-ingest` and the managed Calibre library at `/mnt/unas-media/books-cwa`.
+- Configured CWA to run as `PUID=1000` and `PGID=988` with `NETWORK_SHARE_MODE=true`.
+- Configured automatic conversion to EPUB, the Kindle EPUB fixer, metadata processing, and processed-book backups.
+- Kept Auto-Send to eReader disabled so ebook delivery remains a manual action.
+
+### Documentation
+
+- Added the reproducible Calibre-Web-Automated initial deployment, NFS permission checks, verification, backup, restore, update, security, and Portainer procedures.
+- Documented the separation between the temporary ingest directory and the CWA-managed Calibre library.
+- Documented the current NFS group-permission model using `PGID=988`.
+- Documented recovery for NFS ownership errors, local `processed_books` permissions, slow first startup, and a stuck PDF conversion.
+
 ## 2026-11-19
 
 ### Added
