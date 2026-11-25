@@ -2,6 +2,25 @@
 
 Notable deployment, configuration, and documentation changes to XRP Homelab are recorded here. Minor editorial fixes do not require a changelog entry.
 
+## 2026-11-25
+
+### Added
+
+- Added the Home Assistant Docker Compose stack under `stacks/home-automation/home-assistant`.
+- Documented the verified Home Assistant Container `2026.9.3` deployment using the pinned image `ghcr.io/home-assistant/home-assistant:2026.9.3`.
+- Added persistent Home Assistant state under `/srv/docker/home-assistant`.
+- Documented local Bluetooth through the Raspberry Pi adapter and M5Stack Atom Lite ESPHome Bluetooth proxy.
+- Documented the SONOFF Dongle Max as the network-attached ZHA Zigbee coordinator.
+- Documented Ecobee through HomeKit Device as a representative local end-device integration.
+- Added Home Assistant to the repository's current infrastructure list.
+
+### Documentation
+
+- Added reproducible initial deployment, validation, persistence, Portainer, backup, restore, update, security, and troubleshooting procedures.
+- Documented host networking and the restricted `NET_ADMIN` / `NET_RAW` Bluetooth capability model.
+- Documented ZHA coordinator backup and recovery considerations and the external ESPHome Bluetooth proxy dependency.
+- Kept the service documentation focused on the Home Assistant platform and integration framework rather than the household device inventory.
+
 ## 2026-11-20
 
 ### Added
