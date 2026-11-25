@@ -151,11 +151,11 @@ This keeps every deployment consistent and repeatable.
 | Sonarr | ✅ |
 | Seerr | ✅ |
 | Calibre-Web-Automated | ✅ |
+| Home Assistant | ✅ |
 
 # Future Services
 
 - Uptime Kuma
-- Home Assistant
 - Immich
 - Paperless-ngx
 - Nginx Proxy Manager
